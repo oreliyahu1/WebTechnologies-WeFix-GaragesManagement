@@ -1,0 +1,50 @@
+Admin
+RafaOr MosEli
+admin@wefix.com
+Aa123456!!
+===============================================================
+Managers
+Dor Asido
+dasidofirst@gmail.com
+Dordor12!!
+
+Golanya	Jacobov
+Golanya9@gmail.com
+g12342G@@
+
+Shlomi	Levi
+xxsmgxx@gmail.com
+veganAbu!Maran1
+===============================================================
+Employees
+Arik Skigin
+arik30000@gmail.com
+stOli110**
+
+Kfir Gaon
+kfirgaon@gmail.com
+haimYanni0%@
+
+Shahar Klain
+tookic261@gmail.com
+kfirGaga741%$#
+
+Sami Odeh
+rsgunz.sami@gmail.com
+habibiYammi382%
+===============================================================
+Garages
+Braude	Garage
+Israel, Karmiel, Snunit 51
+Manager: Golanya Jacobov
+Employees: Kfir Gaon
+
+The Partners Garage
+Israel, Afula, Sakhlav 10
+Manager: Shlomi levi
+Employees: Shahar Klain, Sami Odeh
+
+The Reference Garage
+Israel, Kiryat Ata, Eliyahu ha-Navi 20
+Manager: Dor Asido
+Employees: Arik Skigin

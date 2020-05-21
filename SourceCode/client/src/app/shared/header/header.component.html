@@ -1,0 +1,43 @@
+  <div>
+	<mat-toolbar class="header">
+		<a><img src="./assets/img/logo.png" width="140"></a>
+		<!-- The following menu items will be hidden on both SM and XS screen sizes -->
+		<span class="example-spacer"></span>
+		<button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+			<mat-icon>menu</mat-icon>
+		  </button>
+		<div fxShow="true" fxHide.lt-md="true">
+		  <a href="/panel" mat-button  [routerLink]="['/panel']"  [routerLinkActive]="['is-active']">
+			<mat-icon>dashboard</mat-icon>
+			Dashboard
+		  </a> 
+		  <a href="/account" mat-button [routerLink]="['/account']" [routerLinkActive]="['is-active']">
+			<mat-icon>account_box</mat-icon>
+			Account
+		  </a>
+		</div>
+	</mat-toolbar>
+
+	<mat-sidenav-container fxFlexFill style="background-color: transparent;">
+		<mat-sidenav position="end" #sidenav color="white" style="opacity: 0.75;" >
+		  <mat-nav-list>
+			<a href="/panel" mat-list-item  [routerLink]="['/panel']" [routerLinkActive]="['is-active']">
+			  <mat-icon>dashboard</mat-icon>
+			  Dashboard
+			</a>
+			<a href="/account" mat-list-item  [routerLink]="['/account']" [routerLinkActive]="['is-active']">
+			  <mat-icon>account_box</mat-icon>
+			  Account
+			</a>
+			<a (click)="sidenav.toggle()" mat-list-item>
+			  <mat-icon>close</mat-icon> Close
+			</a>
+		  </mat-nav-list>
+		</mat-sidenav>
+		<mat-sidenav-content fxFlexFill><router-outlet></router-outlet></mat-sidenav-content>
+	  </mat-sidenav-container>
+	</div>
+
+	
+
+	

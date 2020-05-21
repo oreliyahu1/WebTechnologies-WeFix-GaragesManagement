@@ -1,0 +1,138 @@
+  table {
+    width: 100%;
+  }
+
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  th.mat-sort-header-sorted {
+    color: #212121;
+  }
+
+  .tableBG {
+    background-color: white;
+    opacity: 0.75;
+  }
+
+  @media screen and (max-width: 600px) {
+    input {
+      float: none;
+      display: block;
+      text-align: left;
+      width: 100%;
+      margin: 0;
+      padding: 15px;
+    }
+    input {
+      border: 1px solid #ccc;
+    }
+  }
+
+  span {
+    border-radius: 5px 0px 0px 5px;
+    text-align: center;
+    background-color: #212121;
+    opacity: 0.75;
+    color: #999;
+    border: 0 !important;
+    margin-bottom: 2px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    height: 32px;
+    font-size: 10px;
+  }
+
+  input {
+    border-radius: 0px 5px 5px 0px;
+    height: 32px;
+    font-size: 10px;
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+  }
+
+  input:focus {
+    border-radius: 0px 5px 5px 0px;
+    border-width: 5px;
+  }
+
+  .example-fill-remaining-space {
+    flex: 1 1 auto;
+    background-color: transparent;
+  }
+
+  .addlogo:hover, .logo:focus, .logo:active {
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  .wrapper {
+    width: auto;
+  }
+
+  /* Style the Un-order list by setting its list-style to none */
+
+  .wrapper ul {
+    list-style: none;
+  }
+
+  /* Style the list items inside the UL list, by setting its width, height and line-height 
+      and float them to left and set its border and border-radius.
+     */
+
+  .wrapper ul li {
+    width: 40px;
+    height: 40px;
+    line-height: 0px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 3px solid #212121;
+    transition: all 0.5s ease;
+  }
+
+  /* Style the icons by setting its color and margin-top value to 20px 
+    to align it properly */
+
+  .wrapper ul li .fa {
+    color: #212121;
+    margin-top: 9px;
+    transition: all 0.5s ease;
+  }
+
+  /*twitter*/
+
+  .wrapper ul li:hover.pluslogo {
+    border: 3px solid #5fa2db;
+    box-shadow: 0 0 10px #5fa2db;
+    transition: all 0.5s ease;
+  }
+
+  .wrapper ul li:hover .fa-plus {
+    color: #5fa2db;
+    text-shadow: 0 0 10px #5fa2db;
+    transition: all 0.5s ease;
+  }
+
+  .fa-trash-o:hover {
+    color: red;
+    text-shadow: 0 0 10px red;
+    transition: all 0.5s ease;
+  }
+
+  .fa-pencil-square-o:hover {
+    color: green;
+    text-shadow: 0 0 10px green;
+    transition: all 0.5s ease;
+  }
+
+  .truncate-cell {
+    max-width: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }

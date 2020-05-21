@@ -1,0 +1,157 @@
+<div class="container" *ngIf="getUserPermission() != 'None' && getUserPermission() != 'New Employee'; else newEmployeeTemplate"> 
+ <div class="container" style="height: 409px;">
+  <div class="row">
+    <div class="card2" id="or-border2">
+      <div class="card-header" id="or-header2">
+        Welcome!
+      </div>
+      <div class="card-main">
+        <i class="material-icons" id="or-color2">
+        home_work
+    </i>
+        <div class="main-description" id="or-color2" >
+          <div class="truncate-header"> Hi, {{this.user.firstname}}</div>
+           Wefix company wishes you to have a great day!
+           </div>
+         </div>
+       </div>
+  </div> 
+
+  <div *ngIf="getUserPermission() != 'Admin'; else adminTemplate">
+    <div class="row">
+      <div class="card" id="or-border2">
+        <div class="card-header" id="or-header2">
+          Manager
+        </div>
+        <div class="card-main">
+          <i class="material-icons" id="or-color2">
+            supervisor_account
+          </i>
+          <div class="main-description" id="or-color2" class="truncate-cell">
+            {{this.managerName}}
+          </div>
+        </div>
+      </div>
+      <div class="card" id="or-border2">
+        <div class="card-header" id="or-header2">
+          Garage
+        </div>
+        <div class="card-main">
+          <i class="material-icons" id="or-color2">
+            build
+          </i>
+          <div class="main-description" id="or-color2" class="truncate-cell">
+            {{this.garageName}}
+          </div>
+        </div>
+      </div>
+
+      <div class="card" id="or-border2">
+        <div class="card-header" id="or-header2">
+          Address
+        </div>
+        <div class="card-main">
+          <i class="material-icons" id="or-color2">
+            room
+          </i>
+          <div class="main-description" id="or-color2" class="truncate-cell">
+            <div style="margin-left:35%">{{this.garageAddressCountry}}</div>
+              {{this.garageAddress}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #adminTemplate>
+      <div class="row">
+        <div class="card" id="or-border2">
+          <div class="card-header" id="or-header2">
+            N.Employees
+          </div>
+          <div class="card-main">
+            <i class="material-icons" id="or-color2">
+              supervisor_account
+            </i>
+            <div class="main-description" id="or-color2">
+              {{usersNum}}
+            </div>
+          </div>
+        </div>
+      
+        <div class="card" id="or-border2">
+          <div class="card-header" id="or-header2">
+            N.Garages
+          </div>
+          <div class="card-main">
+            <i class="material-icons" id="or-color2">
+              build
+            </i>
+            <div class="main-description" id="or-color2">
+              {{garagesNum}}
+            </div>
+          </div>
+        </div>
+      
+        <div class="card" id="or-border2">
+          <div class="card-header" id="or-header2">
+            M.Income
+          </div>
+          <div class="card-main">
+            <i class="material-icons" id="or-color2">
+              euro_symbol
+            </i>
+            <div class="main-description" id="or-color2">
+              {{monthIncome}}
+            </div>
+          </div>
+        </div>
+      </div>   
+    </ng-template>
+  </div>
+    <app-brandchart></app-brandchart>
+  </div>
+  
+  <ng-template #newEmployeeTemplate>
+    <div *ngIf="getUserPermission() != 'None'; else noneTemplate">
+      <div class="container" style="height: 809px;">
+      <div class="row">
+        <div class="card2" id="or-border2">
+          <div class="card-header" id="or-header2">
+            Welcome New Employee!
+          </div>
+          <div class="card-main">
+            <i class="material-icons" id="or-color2">
+              home_work
+            </i>
+            <div class="main-description" id="or-color2">
+              Hi, {{this.user.firstname}}
+            <br> <strong>You need to be patient and wait for a manager to assign you a garage.</strong><br> Wefix company wishes you to have a great day!
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+    </div>
+  </ng-template>
+
+<ng-template #noneTemplate>
+  <div class="container" style="height: 809px;">
+    <div class="row">
+      <div class="card2" id="or-border2">
+        <div class="card-header" id="or-header2">
+        Warning!
+        </div>
+        <div class="card-main">
+          <i class="material-icons" id="or-color2">
+            home_work
+          </i>
+          <div class="main-description" id="or-color2">
+            Hi, {{this.user.firstname}}
+          <br> <strong>Your account have been disabled you can contact us for more information.</strong><br> Wefix company wishes you to have a great day!
+          </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

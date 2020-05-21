@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"wefix.treatments"}],"uuid":"f6748691bfb74b59b4f708b085d34280"}

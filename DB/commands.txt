@@ -1,0 +1,15 @@
+go to
+C:\Program Files\MongoDB\Server\4.1\bin
+
+and run:
+
+restore wefix db
+mongorestore -d wefix "C:\Users\Or Eliyahu\Desktop\WebTechnologies_RafaelMosheyoff_OrEliyahu\DB\wefix"
+
+backup wefix db
+mongodump -d wefix -o "C:\Users\Or Eliyahu\Desktop\WebTechnologies_RafaelMosheyoff_OrEliyahu\DB\wefix"
+
+
+
+mongodump -d <database_name> -o <directory_backup>
+mongorestore -d <database_name> <directory_backup>

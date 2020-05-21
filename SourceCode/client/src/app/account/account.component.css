@@ -1,0 +1,100 @@
+.btn-bg {
+  position: relative;
+  z-index: 1;
+  width: 160px;
+  height: 80px;
+  margin: 0 auto;
+  overflow: hidden;
+  opacity: 0.75;
+}
+
+.btn-in {
+  position: relative;
+  top: 11px;
+  left: 15px;
+  width: 130px;
+  height: 55px;
+  border-left: 1px solid #B4B4B4;
+  border-top: 1px solid #919191;
+  border-bottom: 1px solid #919191;
+  border-right: 1px solid #919191;
+  border-radius: 60px;
+  background: #c8c8c8;
+  background: linear-gradient( to right, #fff 50%, #c8c8c8 100%);
+  box-shadow: inset -2px 0px 8px rgba(126, 126, 126, 0.6), inset 2px 1px 1px rgba(255, 255, 255, .5);
+  transition: all .2s linear;
+}
+
+.btn-in:before, .btn-in:after {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  bottom: 25px;
+  left: 10px;
+  width: 75px;
+  height: 35px;
+  border-radius: 60px;
+  transform: skew(-21deg)rotate(-12deg);
+  transition: all .2s linear;
+}
+
+.input1:checked~.btn-in:before, .input1:checked~.btn-in:after {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  bottom: 27px;
+  left: 48px;
+  width: 75px;
+  height: 35px;
+  border-radius: 60px;
+  transform: skew(21deg)rotate(12deg);
+}
+
+input:checked~.btn-in {
+  background: #fff;
+  background: linear-gradient( to right, #c8c8c8 0, #fff 68%);
+  box-shadow: inset 2px 0px 8px rgba(0, 0, 0, 0.2), inset -2px 1px 1px rgba(255, 255, 255, .5);
+  border-left: 1px solid #919191;
+  border-top: 1px solid #919191;
+  border-bottom: 1px solid #919191;
+  border-right: 1px solid #B4B4B4;
+}
+
+.input1 {
+  display: block;
+  z-index: 10;
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  width: 130px;
+  height: 55px;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.profile {
+  left: 20px;
+  top: 1px;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, .3), 0 1px 0 rgba(255, 255, 255, .5);
+  color: #aaa;
+}
+
+.password {
+  right: 20px;
+  top: 1px;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, .3), 0 1px 0 rgba(255, 255, 255, .5);
+  color: #5fa2db;
+}
+
+.input1:checked~.btn-in .profile {
+  color: #5fa2db;
+  transition: all .2s linear;
+}
+
+.input1:checked~.btn-in .password {
+  color: #aaa;
+  transition: all .2s linear;
+}
+

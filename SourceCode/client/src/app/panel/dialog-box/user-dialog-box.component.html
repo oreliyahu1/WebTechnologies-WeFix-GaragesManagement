@@ -1,0 +1,47 @@
+<h1 mat-dialog-title><strong>{{action}} User</strong></h1>
+<div mat-dialog-content>
+  <mat-form-field *ngIf="action != 'ResetPassword' && action != 'Permission' ; else PermissionTemplate">
+    <input placeholder="{{action}} User Firstname" matInput [(ngModel)]="local_data.firstname">
+  </mat-form-field>
+
+  <mat-form-field *ngIf="action != 'ResetPassword' && action != 'Permission' ;">
+    <input placeholder="{{action}} User Lastname" matInput [(ngModel)]="local_data.lastname">
+  </mat-form-field>
+
+  <mat-form-field *ngIf="action != 'ResetPassword' && action != 'Permission' ;">
+    <input placeholder="{{action}} User Email" matInput [(ngModel)]="local_data.email">
+  </mat-form-field>
+
+  <ng-template #PermissionTemplate>
+    <div *ngIf="action != 'ResetPassword'; else ResetPasswordTemplate">
+        <mat-form-field appearance="outline" >
+        <mat-label>Choose Status</mat-label>
+          <mat-select [(value)]="selectedStatus"required>
+            <mat-option *ngFor="let status of statusList" [value]="status">
+              {{status}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      <div *ngIf="selectedStatus == 'Employee' || selectedStatus == 'Manager' ">
+        <mat-form-field appearance="outline" >
+        <mat-label>Choose Garage </mat-label>
+          <mat-select [(value)]="selectedGarage"required>
+            <mat-option *ngFor="let garage of garageList" [value]="garage">
+              {{garage.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #ResetPasswordTemplate>
+    Are you sure to reset the current password of <b>{{local_data.firstname}}</b>?<br>
+    New password: <b>{{this.newPassword}}</b>
+  </ng-template>
+</div>
+
+<div mat-dialog-actions style="padding-left:20px">
+  <button mat-button (click)="doAction()" mat-flat-button color="primary">Accept</button>
+  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+</div>

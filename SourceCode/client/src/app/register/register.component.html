@@ -1,0 +1,92 @@
+<mat-toolbar class="header">
+	<span class="logoregister"><a href="/"><img class="img-fluid" class="img-responsive" alt="Responsive image"  src="./assets/img/logo.png" width="350px" ></a></span>
+</mat-toolbar>
+
+<div class="container center-block vertical-center">
+	<div class="formDIV">
+		<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+			<div class="row">
+				<h1 class="LognRegister" style="text-align:center" >Sign Up</h1>
+				<div class="form-login-container" >
+					<div class="col-sm-6">
+						<div id="FirstNameGroup" class="form-group" [ngClass]="displayFieldCss('firstname')">
+							<label for="inputFirstName">First name:</label>
+							<div class="input-group">
+								  <span class="input-group-addon">
+									<span class="glyphicon glyphicon-user"></span>
+								  </span>
+									<input type="text" formControlName="firstname" class="form-control" id="firstname" placeholder="Enter First Name" required/>
+								</div>
+							<app-field-error-display 
+								[displayError]="isFieldValid('firstname')" 
+								errorMsg="Please enter a valid first name">
+							</app-field-error-display>
+						</div>
+						<div id="LastNameGroup" class="form-group" [ngClass]="displayFieldCss('lastname')">
+							<label for="inputLastName">Last name:</label>
+							<div class="input-group">
+								  <span class="input-group-addon">
+									<span class="glyphicon glyphicon-user"></span>
+								  </span>
+									<input type="text" formControlName="lastname" class="form-control" id="lastname" placeholder="Enter Last Name" required/>
+								</div>
+							<app-field-error-display 
+								[displayError]="isFieldValid('lastname')" 
+								errorMsg="Please enter a valid last name">
+							</app-field-error-display>
+						</div>
+						<div id="EmailGroup" class="form-group" [ngClass]="displayFieldCss('email')">
+							<label for="inputEmail">Email:</label>
+							<div class="input-group">
+								  <span class="input-group-addon">
+									<span class="glyphicon glyphicon-user"></span>
+								  </span>
+									<input type="text" formControlName="email" class="form-control" id="email" placeholder="Enter Email" required/>
+								</div>
+							<app-field-error-display 
+							[displayError]="isFieldValid('email')" 
+							errorMsg="Please enter a valid email address">
+							</app-field-error-display>
+						</div>
+					</div>
+
+					<div class="col-sm-6">
+					<div id="PasswordGroup" class="form-group" [ngClass]="displayFieldCss('password')">
+						<label for="inputPassword">Password:</label>
+						<div class="input-group">
+							<span class="input-group-addon">
+							<span class="glyphicon glyphicon-lock">
+							</span>
+							</span>
+							<input type="password" formControlName="password" name="password" class="form-control" id="password" placeholder="Enter Password" maxlength="32" required />
+						</div>
+						<app-field-error-display 
+						[displayError]="isFieldValid('password')"
+						[errorMsg]="geterror('password')">
+				       </app-field-error-display>	
+					</div>
+            
+					<div id="PasswordCGroup" class="form-group" [ngClass]="displayFieldCss('cpassword')">
+						<label for="inputPasswordC">Confirmation:</label>
+						<div class="input-group">
+							<span class="input-group-addon">
+							<span class="glyphicon glyphicon-lock">
+							</span>
+							</span>
+							<input type="password" formControlName="cpassword" class="form-control" id="cpassword" placeholder="Enter Confirmation" maxlength="32" required />
+						</div>	
+						<app-field-error-display 
+						[displayError]="isFieldValid('cpassword')"
+						[errorMsg]="geterror('cpassword')">
+				       </app-field-error-display>
+					</div>
+				</div>
+			</div>
+				<div align="center" style="margin-right:25%;margin-left:25%">
+				<button id="signupBtn" style="margin-top:10%"class="btn btn-primary btn-block">Create my account</button>
+				<a class="form-terms" href="./login">Already a member? Sign-in</a>
+				</div>	
+			</div>	
+		</form>
+	</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,21 @@
+
+<app-alert-header></app-alert-header> 
+<ng-template *ngIf = "_router.url == '/panel' || _router.url == '/account' ; then show else notshow"></ng-template>
+
+<ng-template #show>
+<div fxLayout="column" fxFlexFill>
+    <app-header></app-header> 
+    <div fxFlex>
+        <!-- does't need router outlet-->
+    </div>
+    <app-footer ></app-footer>
+</div></ng-template>
+
+<ng-template #notshow>
+    <div fxLayout="column" fxFlexFill>
+        <div fxFlex>
+            <router-outlet></router-outlet>
+        </div>
+        <app-footer ></app-footer>
+    </div>
+</ng-template>

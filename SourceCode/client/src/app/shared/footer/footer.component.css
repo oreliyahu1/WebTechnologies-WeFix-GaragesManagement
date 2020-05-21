@@ -1,0 +1,24 @@
+.footer {
+    position: flex;
+    font-size: 120%;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    text-align: center;
+    background-color: white;
+    opacity: 0.7;
+    border-top: 0.1px solid #212121;
+}
+
+@media(max-width: 600px) {
+    .long {
+        display: none;
+    }
+}
+
+@media(min-width: 600px) {
+    .short {
+        display: none;
+        font-size: 40%;
+    }
+}
