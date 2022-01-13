@@ -1,0 +1,43 @@
+<h1 mat-dialog-title><strong>{{action}} Treatment</strong></h1>
+<div mat-dialog-content>                                                  <!-- ['date','id','carid','cost','status','details','action'];-->
+  <mat-form-field *ngIf="action != 'Delete' && action!='Show'; else deleteTemplate">
+    <input placeholder="Car-Id" matInput [(ngModel)]="local_data.carid" pattern="\d{4,8}">
+  </mat-form-field>
+
+  <mat-form-field *ngIf="action != 'Delete' && action!='Show';">
+    <input placeholder="Cost" matInput [(ngModel)]="local_data.cost" pattern="\d{1,8}">
+  </mat-form-field>
+
+  <mat-form-field *ngIf="action != 'Delete' && action!='Show';">
+    <!-- <input placeholder="Details" matInput [(ngModel)]="local_data.details"> -->
+    <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="2" cdkAutosizeMaxRows="10" placeholder="Details" [(ngModel)]="local_data.details"></textarea>
+  </mat-form-field>
+
+  <mat-form-field *ngIf="action == 'Edit';">
+   <!-- <input placeholder="Status" matInput [(ngModel)]="local_data.status"> -->
+    <mat-select [(value)]="local_data.status" [(ngModel)]="local_data.status" placeholder={{local_data.status}}>
+      <mat-option value="Waiting">Waiting</mat-option>
+      <mat-option value="In process">In process</mat-option>
+      <mat-option value="Done">Done</mat-option>
+   </mat-select>
+  </mat-form-field>
+
+  <ng-template #deleteTemplate>
+    <div *ngIf="action!='Show'; else showTemplate" >
+    Sure to delete this Treatment: <b>{{local_data._id}}</b>?
+  </div>
+  </ng-template>
+
+  <ng-template #showTemplate>
+    <textarea readonly matInput cdkTextareaAutosize cdkAutosizeMinRows="10" cdkAutosizeMaxRows="10" >{{local_data.details}}</textarea>
+  </ng-template>
+</div>
+
+<div mat-dialog-actions *ngIf="action!='Show';" style="padding-left:20px">
+  <button  mat-button (click)="doAction()" mat-flat-button color="primary">{{action}}</button>
+  <button  mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+</div>
+
+<div style="padding-top:5px" style="padding-left:25px">
+  <button *ngIf="action=='Show';" mat-button (click)="closeDialog()" mat-flat-button color="warn" style="width:150px">Back</button>
+</div>

@@ -1,0 +1,124 @@
+<div style="height: 809px; overflow: hidden">
+<div class="btn-bg" (click)="visibleChange()">
+  	<input class = "input1" type="checkbox" checked>
+ 		 <div class="btn-in">
+   			<span style="position: absolute;top: 17px; transition: all .2s linear;" class="profile"><span  class="glyphicon glyphicon-user" style="margin:auto"></span></span>
+    		<span style="position: absolute;top: 17px; transition: all .2s linear;" class="password"><span  class="glyphicon glyphicon-lock"></span></span>
+		  </div>
+	
+</div>
+
+<div class="container center-block vertical-center">
+	<div class="formDIV" *ngIf="!showCardBody">
+		<form [formGroup]="accountForm" (ngSubmit)="onSubmit()">
+			<div class="row">
+				<h1 class="LognRegister" style="text-align:center" >Profile</h1>
+				<div class="form-login-container" >
+					<div class="col-sm-6">
+						<div id="IdGroup" class="form-group" [ngClass]="displayFieldCss('_id')">
+							<label for="inputID">ID:</label>
+							<div class="input-group">
+								  <span class="input-group-addon">
+									<span class="glyphicon glyphicon-user"></span>
+								  </span>
+									<input type="text" formControlName="_id" class="form-control" id="_id" placeholder="Enter ID" [ngModel]="this.user._id" [attr.disabled]="true" required/>
+								</div>
+						</div>
+						<div id="FirstNameGroup" class="form-group" [ngClass]="displayFieldCss('firstname')">
+							<label for="inputFirstName">First name:</label>
+							<div class="input-group">
+								  <span class="input-group-addon">
+									<span class="glyphicon glyphicon-user"></span>
+								  </span>
+									<input type="text" formControlName="firstname" class="form-control" id="firstname" placeholder="Enter First Name" [ngModel]="this.user.firstname" required/>
+								</div>
+							<app-field-error-display 
+								[displayError]="isFieldValid('firstname')" 
+								errorMsg="Please enter a valid first name">
+							</app-field-error-display>
+						</div>
+						
+					</div>
+
+					<div class="col-sm-6">
+					<div id="EmailGroup" class="form-group" [ngClass]="displayFieldCss('email')">
+						<label for="inputEmail">Email:</label>
+						<div class="input-group">
+							  <span class="input-group-addon">
+								<span class="glyphicon glyphicon-user"></span>
+							  </span>
+								<input type="text" formControlName="email" class="form-control" id="email" placeholder="Enter Email" [ngModel]="this.user.email" required/>
+							</div>
+						<app-field-error-display 
+						[displayError]="isFieldValid('email')" 
+						errorMsg="Please enter a valid email address">
+					    </app-field-error-display>
+					</div>
+
+					<div id="LastNameGroup" class="form-group" [ngClass]="displayFieldCss('lastname')">
+						<label for="inputLastName">Last name:</label>
+						<div class="input-group">
+							  <span class="input-group-addon">
+								<span class="glyphicon glyphicon-user"></span>
+							  </span>
+								<input type="text" formControlName="lastname" class="form-control" id="lastname" placeholder="Enter Last Name" [ngModel]="this.user.lastname" required/>
+							</div>
+						<app-field-error-display 
+							[displayError]="isFieldValid('lastname')" 
+							errorMsg="Please enter a valid last name">
+						</app-field-error-display>
+					</div>	
+				</div>
+			</div>
+				<div align="center" style="margin-right:25%;margin-left:25%">
+				<button id="proUpdateBtn" style="margin-top:10%; margin-bottom:5%;"class="btn btn-primary btn-block">Update</button>
+						
+				</div>	
+			</div>	
+		</form>
+	</div>
+
+	<div class="formDIV" *ngIf="showCardBody"  [@openClose]="showCardBody ? 'open' : 'closed'" >
+		<form [formGroup]="passwordForm" (ngSubmit)="onSubmit()" >
+			<div class="row">
+				<h1 class="LognRegister" style="text-align:center" >Password</h1>
+				<div class="form-login-container" >
+					<div class="col-sm-12">
+						<div id="PasswordGroup" class="form-group" [ngClass]="displayFieldCss('password')">
+							<label for="inputPassword">New Password:</label>
+							<div class="input-group">
+								<span class="input-group-addon">
+								<span class="glyphicon glyphicon-lock"></span>
+								</span>
+								<input type="password" formControlName="password" name="password" class="form-control" id="password" placeholder="Enter Password" maxlength="32" value="" required />
+							</div>
+							<app-field-error-display 
+							[displayError]="isFieldValid('password')"
+							[errorMsg]="geterror('password')">
+							   </app-field-error-display>	
+						</div>
+						
+						<div id="PasswordCGroup" class="form-group" [ngClass]="displayFieldCss('cpassword')">
+							<label for="inputPasswordC">Confirmation:</label>
+							<div class="input-group">
+								<span class="input-group-addon">
+								<span class="glyphicon glyphicon-lock"></span>
+								</span>
+								<input type="password" formControlName="cpassword" class="form-control" id="cpassword" placeholder="Enter Confirmation" maxlength="32" value="" required />
+							</div>	
+							<app-field-error-display 
+							[displayError]="isFieldValid('cpassword')"
+							[errorMsg]="geterror('cpassword')">
+							   </app-field-error-display>
+						</div>
+					</div>		
+			   </div>
+				<div align="center" style="margin-right:25%;margin-left:25%">
+				<button id="passUpdateBtn" style="margin-top:10%; margin-bottom:5%;"class="btn btn-primary btn-block">Update</button>
+				</div>	
+			</div>	
+		</form>
+	</div>
+</div> 
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,17 @@
+<!-- main content -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-*-1">
+      <app-side></app-side>
+    </div>
+    <div class="col-*-11" style="padding-left:60px;">
+      <app-welcome *ngIf="checkselected('Income')"></app-welcome>
+      <app-welcome *ngIf="checkselected('Welcome')"></app-welcome>
+      <app-welcome *ngIf="checkselected('Blocked')"></app-welcome>
+      <app-treatments *ngIf="checkselected('Treatment')"></app-treatments>
+      <app-map *ngIf="checkselected('Map')"></app-map>
+      <app-users *ngIf="checkselected('Users')"></app-users> 
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

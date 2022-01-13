@@ -1,0 +1,20 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.header {
+  color: "white";
+  opacity: 0.75;
+  border-bottom: 1px solid #212121;
+}
+
+.is-active {
+  color: rgb(4, 117, 161);
+  border: 1px solid rgb(4, 117, 161);
+  -webkit-box-shadow: 0px -1px -1px -1px rgb(4, 117, 161);
+  /* Safari , iOS 5- */
+  -moz-box-shadow: 0px -1px -1px -1px rgb(4, 117, 161);
+  /* Firefox 3.5 */
+  box-shadow: 0px -1px -1px -1px rgb(4, 117, 161);
+  text-decoration: underline;
+}

@@ -1,0 +1,64 @@
+<mat-toolbar class="header">
+	<span class="logologin"><a href="/"><img class="img-fluid" class="img-responsive" alt="Responsive image"  src="./assets/img/logo.png" width="350px" ></a></span>
+</mat-toolbar>
+
+
+<div class="container center-block vertical-center">
+<jw-modal id="custom-modal-forgotpassword">
+  <div class="formDIV">
+    <span id="ForgotPasswordClose" class="close" (click)="closeModal('custom-modal-forgotpassword')">&times;</span>
+    <span #EmailForgot>
+    </span>
+  </div>
+</jw-modal>
+
+ 
+  <div class="formDIV">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-login-container" >
+          <h1 class="LognRegister" style="text-align:center" >Login</h1>
+          <div id="EmailGroup" class="form-group" [ngClass]="displayFieldCss('email')">
+            <label for="inputEmail">Email:</label>
+            <div class="input-group">
+              <span class="input-group-addon">
+              <span class="glyphicon glyphicon-user"></span>
+              </span>
+              <input type="text" formControlName="email" class="form-control" id="inputEmail" placeholder="Enter Email"/>
+            </div>
+            <app-field-error-display 
+            [displayError]="isFieldValid('email')" 
+            errorMsg="Please enter a valid email address">
+            </app-field-error-display>
+          </div>
+  
+          <div id="PasswordGroup" class="form-group" [ngClass]="displayFieldCss('password')">
+            <label for="inputPassword">Password:</label>
+            <div class="input-group">
+              <span class="input-group-addon">
+              <span class="glyphicon glyphicon-lock">
+              </span>
+              </span>
+              <input [type]="passType" formControlName="password" class="form-control" id="inputPassword" placeholder="Enter Password" maxlength="32" required />
+              <div class="input-group-btn">
+              <button id="showPassword" class="btn btn-secondary" type="button" style="padding:6px;" (click)="showPassword()"><span id="showPasswordIcon" class="glyphicon glyphicon-eye-open"></span>
+              </button>
+              </div>
+            </div>
+            <app-field-error-display 
+              [displayError]="isFieldValid('password')" 
+              errorMsg="Please enter a valid password">
+            </app-field-error-display>
+            <div align="right">
+              <a class="form-terms" style="cursor: pointer;" id="EmailForgotOpen" (click)="openModal('custom-modal-forgotpassword')">Forgot password</a>
+            </div>		
+          </div>
+            
+          <button id="loginBtn" class="btn btn-primary btn-block">Login</button>
+        </div>
+        <div align="center">
+        <a class="form-terms" href="./register">Need an account ? Sign up</a>
+        </div>		
+    </form>
+  </div>
+ </div>
+  <router-outlet></router-outlet>

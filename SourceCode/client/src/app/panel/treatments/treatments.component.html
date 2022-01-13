@@ -1,0 +1,92 @@
+
+                                    <!-- fxShow="true" fxHide.gt-sm  מקומות קטנים מופיע-->
+                                    <!-- fxHide="true" fxShow.gt-sm  מקומות גדולים מופיע-->
+<mat-toolbar class="tableBG" style="justify-content: center; height: 56px;" >
+  <h2> <b>Treatments list </b></h2>
+</mat-toolbar>
+                                                                               
+<mat-toolbar class="tableBG">
+  <span class="glyphicon glyphicon-search" style="text-align: center" ></span>
+    <input (keyup)="applyFilter($event)" placeholder="Search">
+  <span class="example-fill-remaining-space" ></span>
+
+  <div *ngIf="allGaragesPermission()" >
+    <mat-form-field fxHide="true" fxShow.gt-sm>
+      <mat-label> <i class="fa fa-globe " aria-hidden="true"></i>Choose Garage</mat-label>
+        <mat-select [(value)]="selectedGarage" (selectionChange)="loadGarage()" required>
+           <mat-option *ngFor="let garage of garageList" [value]="garage">
+             {{garage.name}}
+           </mat-option>
+        </mat-select>
+     </mat-form-field>
+    <i class="fa fa-globe fa-2x" aria-hidden="true" (click)="selection.toggle()" style="text-align: center;"  fxShow="true" fxHide.gt-sm></i>
+       <mat-select #selection [(value)]="selectedGarage" (selectionChange)="loadGarage()" required style="width: 0px;" fxShow="true" fxHide.gt-sm>
+         <mat-option style="margin: auto;" *ngFor="let garage of garageList" [value]="garage">
+           {{garage.name}}
+         </mat-option>
+       </mat-select>
+  </div>
+
+  <div class="wrapper">
+    <ul><li class="pluslogo" *ngIf="isSelectedGarage()"><a (click)="openDialog('Add',{})" ><i class="fa fa-plus fa-lg" aria-hidden="true"></i></a></li></ul>
+  </div>
+</mat-toolbar>
+
+<div class='table-responsive mat-elevation-z8'>
+  <table mat-table [dataSource]="dataSource" #mytable matSort class="my-table mat-elevation-z8" class="tableBG" >
+ 
+    <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+ 
+    <!-- date Column -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+      <td mat-cell *matCellDef="let element" style="width: 250px;"> {{element.date| date:'short'}} </td>
+    </ng-container>
+ 
+    <!-- id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element._id}} </td>
+    </ng-container>
+
+    <!-- carid Column -->
+    <ng-container matColumnDef="carid">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Car-Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.carid}} </td>
+    </ng-container>
+
+     <!-- cost Column -->
+     <ng-container matColumnDef="cost">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Cost </th>
+      <td mat-cell *matCellDef="let element"> {{element.cost}} </td>
+    </ng-container>
+
+    <!-- status Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+      <td mat-cell *matCellDef="let element" > {{element.status}} </td>
+    </ng-container>
+
+    <!-- details Column -->
+    <ng-container matColumnDef="details">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Details </th>
+      <td mat-cell *matCellDef="let element" (click)="openDialog('Show',element)"  class="truncate-cell" title="Click to expand/collapse"> {{element.details}} </td>
+    </ng-container>
+ 
+    <!-- action Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef > Action </th>
+      <td mat-cell *matCellDef="let element" class="action-link"> 
+        
+        <a (click)="openDialog('Edit',element)"> <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a> | 
+        <a (click)="openDialog('Delete',element)"> <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>  
+      </td>
+    </ng-container>
+ 
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[12, 25, 50]" showFirstLastButtons class="tableBG"></mat-paginator>
+</div>
+  

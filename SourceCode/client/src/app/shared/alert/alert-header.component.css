@@ -1,0 +1,23 @@
+.alert {
+  padding: 1%;
+  background-color: #f44336;
+  color: white;
+  transition: opacity 0.5s;
+  margin-bottom: 2%;
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  right: 0;
+  top: 0;
+  text-align: center;
+}
+
+.alert.success {
+  background-color: #4CAF50;
+}
+
+.alert.warning {
+  background-color: #ff9800;
+}

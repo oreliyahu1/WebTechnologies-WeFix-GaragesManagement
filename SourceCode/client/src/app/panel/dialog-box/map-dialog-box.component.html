@@ -1,0 +1,34 @@
+<h1 mat-dialog-title><strong>{{action}} Garage</strong></h1>
+<div mat-dialog-content>                                                
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input [readonly]="checkpermission()!='Admin'" matInput [(ngModel)]="action_data.name">
+  </mat-form-field>
+  
+  <mat-form-field appearance="outline" >
+    <mat-label>Country </mat-label>
+    <input [readonly]="checkpermission()!='Admin'" matInput [(ngModel)]="action_data.location.country">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" >
+    <mat-label>City</mat-label>
+    <input [readonly]="checkpermission()!='Admin'" matInput [(ngModel)]="action_data.location.city">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" >
+    <mat-label>Street</mat-label>
+    <input [readonly]="checkpermission()!='Admin'" matInput [(ngModel)]="action_data.location.street">
+  </mat-form-field>
+</div>
+
+<div *ngIf="canEdit()" mat-dialog-actions style="padding-left:25px">
+  <button mat-button (click)="doAction()" mat-flat-button color="primary">{{action}}</button>
+  <button mat-button (click)="closeDialog()" mat-flat-button color="accent" >Cancel</button>
+  <div style="padding-top:5px">
+    <button mat-button (click)="deleteAction()" mat-flat-button color="warn" *ngIf="action == 'Edit'" style="width:147px">Delete</button>
+  </div>
+</div>
+
+<div style="padding-left:25px" >
+  <button mat-button (click)="closeDialog()"  mat-flat-button color="warn" *ngIf="action == 'View'" style="width:147px">Back</button>
+</div>
